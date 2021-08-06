@@ -16,7 +16,6 @@ public class WeddingPackages {
         this.styles = styles;
         this.price = price;
     }
-
     public int getId() {
         return id;
     }
@@ -64,7 +63,6 @@ public class WeddingPackages {
     public void setPrice(double price) {
         this.price = price;
     }
-
 
     @Override
     public String toString() {
