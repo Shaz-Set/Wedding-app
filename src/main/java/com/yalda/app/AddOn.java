@@ -1,12 +1,12 @@
 package com.yalda.app;
 
-public class AddOns {
+public class AddOn {
     int id;
     double price;
     String name;
     String details;
 
-    public AddOns(int id, double price, String name, String details) {
+    public AddOn(int id, double price, String name, String details) {
         this.id = id;
         this.price = price;
         this.name = name;

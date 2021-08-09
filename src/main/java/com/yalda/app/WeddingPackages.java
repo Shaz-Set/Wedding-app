@@ -1,17 +1,24 @@
 package com.yalda.app;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class WeddingPackages {
     int id;
     int hours;
-    AddOns addOns;
+    List<AddOn> addOns;
     DrinkPackages drinkPackages;
     String styles; //sited down or roving
     double price;
 
-    public WeddingPackages(int id, int hours, AddOns addOns, DrinkPackages drinkPackages, String styles, double price) {
+    public WeddingPackages(int id, int hours, List<AddOn> addOns, DrinkPackages drinkPackages, String styles, double price) {
         this.id = id;
         this.hours = hours;
+        if(addOns != null){
         this.addOns = addOns;
+        }else{
+            this.addOns = new ArrayList<>();
+        }
         this.drinkPackages = drinkPackages;
         this.styles = styles;
         this.price = price;
@@ -25,6 +32,18 @@ public class WeddingPackages {
         this.id = id;
     }
 
+    public List<AddOn> getAddOns() {
+        return addOns;
+    }
+
+    public void setAddOns(List<AddOn> addOns) {
+        this.addOns = addOns;
+    }
+
+    public void addAddOn(AddOn addOn){
+        addOns.add(addOn);
+    }
+
     public int getHours() {
         return hours;
     }
@@ -33,13 +52,7 @@ public class WeddingPackages {
         this.hours = hours;
     }
 
-    public AddOns getAddOns() {
-        return addOns;
-    }
 
-    public void setAddOns(AddOns addOns) {
-        this.addOns = addOns;
-    }
 
     public DrinkPackages getDrinkPackages() {
         return drinkPackages;
