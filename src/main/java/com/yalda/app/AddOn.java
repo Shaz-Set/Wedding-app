@@ -45,7 +45,7 @@ public class AddOn {
 
     @Override
     public String toString() {
-        return "Add On number: " + this.id + "\n" +
+        return "Add On number " + this.id + "\n" +
                 "Name: " + this.name + "\n" +
                 "Details: " + this.details + "\n" +
                 "Price: $" + this.price + "\n";

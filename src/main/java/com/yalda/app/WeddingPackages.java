@@ -80,7 +80,7 @@ public class WeddingPackages {
 
     @Override
     public String toString() {
-        return "Package number: " + this.id + "\n" +
+        return "Package number " + this.id + "\n" +
                 "Hours: " + this.hours + "\n" +
                 "Style: " + this.styles + "\n" +
                 "Price: $" + this.price + "\n";
