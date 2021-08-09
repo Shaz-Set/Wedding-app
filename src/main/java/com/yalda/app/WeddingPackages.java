@@ -3,12 +3,12 @@ package com.yalda.app;
 public class WeddingPackages {
     int id;
     int hours;
-    String addOns;
-    String drinkPackages;
+    AddOns addOns;
+    DrinkPackages drinkPackages;
     String styles; //sited down or roving
     double price;
 
-    public WeddingPackages(int id, int hours, String addOns, String drinkPackages, String styles, double price) {
+    public WeddingPackages(int id, int hours, AddOns addOns, DrinkPackages drinkPackages, String styles, double price) {
         this.id = id;
         this.hours = hours;
         this.addOns = addOns;
@@ -16,48 +16,49 @@ public class WeddingPackages {
         this.styles = styles;
         this.price = price;
     }
+
     public int getId() {
         return id;
-    }
-
-    public int getHours() {
-        return hours;
-    }
-
-    public String getAddOns() {
-        return addOns;
-    }
-
-    public String getDrinkPackages() {
-        return drinkPackages;
-    }
-
-    public String getStyles() {
-        return styles;
-    }
-
-    public double getPrice() {
-        return price;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
+    public int getHours() {
+        return hours;
+    }
+
     public void setHours(int hours) {
         this.hours = hours;
     }
 
-    public void setAddOns(String addOns) {
+    public AddOns getAddOns() {
+        return addOns;
+    }
+
+    public void setAddOns(AddOns addOns) {
         this.addOns = addOns;
     }
 
-    public void setDrinkPackages(String drinkPackages) {
+    public DrinkPackages getDrinkPackages() {
+        return drinkPackages;
+    }
+
+    public void setDrinkPackages(DrinkPackages drinkPackages) {
         this.drinkPackages = drinkPackages;
+    }
+
+    public String getStyles() {
+        return styles;
     }
 
     public void setStyles(String styles) {
         this.styles = styles;
+    }
+
+    public double getPrice() {
+        return price;
     }
 
     public void setPrice(double price) {
