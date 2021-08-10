@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -56,6 +57,9 @@ class PlayTest {
         selectedPackage = Play.getWeddingPackage(packages,"25");
         assertNull(selectedPackage);
     }
+
+
+
 
 
 }
