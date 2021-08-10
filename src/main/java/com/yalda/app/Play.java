@@ -25,43 +25,40 @@ public class Play {
 
         System.out.println("Please choose one of the packages below: (choose by entering the package number.)");
 
-        for (int i = 0; i < packages.size(); i++) {
-            System.out.println(packages.get(i).toString());
+        for (WeddingPackages aPackage : packages) {
+            System.out.println(aPackage.toString());
         }
         do {
-            correctInput = true;
-            switch (in.next()) {
-                case "1":
-                    System.out.println("Congratulations, you chose package One.");
-                    selectedPackage = packageOne;
-                    break;
-                case "2":
-                    System.out.println("Congratulations, you chose package Two.");
-                    selectedPackage = packageTwo;
-                    break;
-                case "3":
-                    System.out.println("Congratulations, you chose package Three.");
-                    selectedPackage = packageThree;
-                    break;
-                case "4":
-                    System.out.println("Congratulations, you chose package Four.");
-                    selectedPackage = packageFour;
-                    break;
-                case "5":
-                    System.out.println("Congratulations, you chose package Five.");
-                    selectedPackage = packageFive;
-                    break;
-                case "6":
-                    System.out.println("Congratulations, you chose package Six.");
-                    selectedPackage = packageSix;
-                    break;
-                default:
-                    System.out.println("Please choose a package to proceed !");
-                    correctInput = false;
-                    break;
-            }
-        } while (!correctInput);
+            String nextInput = in.next();
+            selectedPackage = getWeddingPackage(packages, nextInput);
+        } while (selectedPackage == null);
         return selectedPackage;
+    }
+
+    public static WeddingPackages getWeddingPackage(List<WeddingPackages> packages, String nextInput) {
+        switch (nextInput) {
+            case "1":
+                System.out.println("Congratulations, you chose package One.");
+                return packages.get(0);
+            case "2":
+                System.out.println("Congratulations, you chose package Two.");
+                return packages.get(1);
+            case "3":
+                System.out.println("Congratulations, you chose package Three.");
+                return packages.get(2);
+            case "4":
+                System.out.println("Congratulations, you chose package Four.");
+                return packages.get(3);
+            case "5":
+                System.out.println("Congratulations, you chose package Five.");
+                return packages.get(4);
+            case "6":
+                System.out.println("Congratulations, you chose package Six.");
+                return packages.get(5);
+            default:
+                System.out.println("Please choose a package to proceed !");
+                return null;
+        }
     }
 
     public static List<AddOn> chooseAddOns(Scanner in) {
@@ -89,8 +86,8 @@ public class Play {
         items.add(itemFour);
         items.add(itemFive);
 
-        for (int i = 0; i < items.size(); i++) {
-            System.out.println(items.get(i).toString());
+        for (AddOn item : items) {
+            System.out.println(item.toString());
         }
         do {
             selectedInput = true;
@@ -135,10 +132,10 @@ public class Play {
                     selectedInput = false;
                     break;
             }
-            if (noAddOn == false) {
+            if (!noAddOn) {
                 System.out.println("Do you want to add another Item? (enter Yes or no)");
-                String answer = in.next().toUpperCase();
-                if (answer == "YES") {
+                String answer = in.next();
+                if (answer.equalsIgnoreCase("yes")) {
                     selectedInput = false;
                 } else {
                     selectedInput = true;
@@ -151,7 +148,6 @@ public class Play {
     }
 
     public static DrinkPackages chooseDrinkPackages(Scanner in) {
-        boolean correctInput;
         DrinkPackages selectedDrinkPackage = null;
         System.out.println("Please choose one of the drink packages below.");
 
@@ -164,38 +160,38 @@ public class Play {
         drinkPackages.add(drinkPackageTwo);
         drinkPackages.add(drinkPackageThree);
 
-        for (int i = 0; i < drinkPackages.size(); i++) {
-            System.out.println(drinkPackages.get(i).toString());
+        for (DrinkPackages drinkPackage : drinkPackages) {
+            System.out.println(drinkPackage.toString());
         }
         do {
-            correctInput = true;
-            switch (in.next()) {
-                case "1":
-                    System.out.println("Standard drink package is added to your wedding package.");
-                    selectedDrinkPackage = drinkPackageOne;
-                    break;
-                case "2":
-                    System.out.println("Classic drink package is added to your wedding package.");
-                    selectedDrinkPackage = drinkPackageTwo;
-                    break;
-                case "3":
-                    System.out.println("Platinum drink package is added to your wedding package.");
-                    selectedDrinkPackage = drinkPackageThree;
-                    correctInput = true;
-                default:
-                    System.out.println("please select at least one of the drink packages.");
-                    correctInput = false;
-                    break;
-            }
-        } while (!correctInput);
+            String nextInput = in.next();
+            selectedDrinkPackage = getDrinkPackages( drinkPackages, nextInput);
+        } while (selectedDrinkPackage == null);
         return selectedDrinkPackage;
+    }
+
+    private static DrinkPackages getDrinkPackages(List<DrinkPackages> drinkPackage, String nextInput) {
+        switch (nextInput) {
+            case "1":
+                System.out.println("Standard drink package is added to your wedding package.");
+                return drinkPackage.get(0);
+            case "2":
+                System.out.println("Classic drink package is added to your wedding package.");
+                return drinkPackage.get(0);
+            case "3":
+                System.out.println("Platinum drink package is added to your wedding package.");
+                return drinkPackage.get(0);
+            default:
+                System.out.println("please select at least one of the drink packages.");
+                return null;
+        }
     }
 
     public static void calculateTotalPrice(WeddingPackages wp, DrinkPackages dp, List<AddOn> ao, Scanner in) {
         System.out.println("How many guests are you planning to have?");
         double addOnsPrice = 0;
-        for (int i = 0; i < ao.size(); i++) {
-            addOnsPrice += ao.get(i).getPrice();
+        for (AddOn addOn : ao) {
+            addOnsPrice += addOn.getPrice();
         }
         int peopleInvited = in.nextInt();
         double totalPrice = (wp.getPrice() * peopleInvited) + (dp.getPrice() * peopleInvited) + addOnsPrice;
