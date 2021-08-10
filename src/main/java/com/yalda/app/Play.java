@@ -25,13 +25,13 @@ public class Play {
         packages.add(packageSix);
 
         System.out.println("\"Welcome to our venue\" \n" +
-                "Below is the list of the wedding packages to make you night more memorable. \n");
+                "Below is the list of our wedding packages to make you night more memorable. \n");
 
         for (WeddingPackages aPackage : packages) {
             System.out.println(aPackage.toString());
         }
 
-        System.out.println("Please select you desirable package to continue. select by entering the package number.");
+        System.out.println("Please select your desirable package to continue. select by entering the package number.");
         do {
             String nextInput = in.next();
             selectedPackage = getWeddingPackage(packages, nextInput);
@@ -98,7 +98,7 @@ public class Play {
             System.out.println(item.toString());
         }
         System.out.println("If you wish to add any of the additional items, just enter the item number." +
-                "(select no if do not want any)\n");
+                "(select no if you do not want any)\n");
 
         do {
             selectedInput = true;
@@ -139,7 +139,7 @@ public class Play {
                     noAddOn = true;
                     break;
                 default:
-                    System.out.println("please select at least one of the items or enter NO to continue.\n");
+                    System.out.println("please select at least one of the items or enter No to continue.\n");
                     selectedInput = false;
                     break;
             }
@@ -164,7 +164,7 @@ public class Play {
     public static DrinkPackages chooseDrinkPackages(Scanner in) {
         DrinkPackages selectedDrinkPackage = null;
 
-        System.out.println("Please choose one of the our finest drink packages.");
+        System.out.println("Please choose one of our finest drink packages.");
 
         DrinkPackages drinkPackageOne = new DrinkPackages(1, 0, "Standard Package", "House wines and beers.");
         DrinkPackages drinkPackageTwo = new DrinkPackages(2, 20, "Classic Package", "Classic wines and beers will be added to your drink menu, the price will be added to each person.");
@@ -185,7 +185,7 @@ public class Play {
         return selectedDrinkPackage;
     }
 
-    private static DrinkPackages getDrinkPackages(List<DrinkPackages> drinkPackage, String nextInput) {
+    public static DrinkPackages getDrinkPackages(List<DrinkPackages> drinkPackage, String nextInput) {
         switch (nextInput) {
             case "1":
                 System.out.println("Standard drink package is added to your wedding package.\n");
