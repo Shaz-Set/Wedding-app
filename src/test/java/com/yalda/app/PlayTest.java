@@ -107,7 +107,7 @@ class PlayTest {
     @Test
     void testChooseAddOn(){
         Scanner in = new Scanner(System.in);
-        List<AddOn> selectedAddOn = Play.chooseAddOns( in);
+        List<AddOn> selectedAddOn = Play.chooseAddOns(in);
     }
 
     @Test
