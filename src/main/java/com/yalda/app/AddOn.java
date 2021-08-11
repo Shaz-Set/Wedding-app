@@ -12,6 +12,7 @@ public class AddOn {
         this.name = name;
         this.details = details;
     }
+
     public int getId() {
         return id;
     }
@@ -27,6 +28,7 @@ public class AddOn {
     public String getDetails() {
         return details;
     }
+
     public void setId(int id) {
         this.id = id;
     }

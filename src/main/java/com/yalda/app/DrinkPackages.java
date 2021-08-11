@@ -44,6 +44,7 @@ public class DrinkPackages {
     public void setDetails(String details) {
         this.details = details;
     }
+
     @Override
     public String toString() {
         return "Drink package number " + this.id + "\n" +

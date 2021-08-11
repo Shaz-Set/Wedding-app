@@ -14,9 +14,9 @@ public class WeddingPackages {
     public WeddingPackages(int id, int hours, List<AddOn> addOns, DrinkPackages drinkPackages, String styles, double price) {
         this.id = id;
         this.hours = hours;
-        if(addOns != null){
-        this.addOns = addOns;
-        }else{
+        if (addOns != null) {
+            this.addOns = addOns;
+        } else {
             this.addOns = new ArrayList<>();
         }
         this.drinkPackages = drinkPackages;
@@ -40,7 +40,7 @@ public class WeddingPackages {
         this.addOns = addOns;
     }
 
-    public void addAddOn(AddOn addOn){
+    public void addAddOn(AddOn addOn) {
         addOns.add(addOn);
     }
 
@@ -51,8 +51,6 @@ public class WeddingPackages {
     public void setHours(int hours) {
         this.hours = hours;
     }
-
-
 
     public DrinkPackages getDrinkPackages() {
         return drinkPackages;

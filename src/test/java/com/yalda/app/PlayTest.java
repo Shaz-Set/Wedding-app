@@ -25,9 +25,12 @@ class PlayTest {
 
     private List<DrinkPackages> drinkPackages;
 
-    DrinkPackages drinkPackageOne = new DrinkPackages(1, 0, "Standard Package", "House wines and beers.");
-    DrinkPackages drinkPackageTwo = new DrinkPackages(2, 20, "Classic Package", "Classic wines and beers will be added to your drink menu, the price will be added to each person.");
-    DrinkPackages drinkPackageThree = new DrinkPackages(3, 40, "Platinum Package", "platinum wines and beers will be added to your drink menu, the price will be added to each person.");
+    DrinkPackages drinkPackageOne = new DrinkPackages(1, 0, "Standard Package",
+            "House wines and beers.");
+    DrinkPackages drinkPackageTwo = new DrinkPackages(2, 20, "Classic Package",
+            "Classic wines and beers will be added to your drink menu, the price will be added to each person.");
+    DrinkPackages drinkPackageThree = new DrinkPackages(3, 40, "Platinum Package",
+            "platinum wines and beers will be added to your drink menu, the price will be added to each person.");
 
     List<AddOn> items;
     AddOn itemOne = new AddOn(1, 3, "GOLD CANDLE HOLDERS",
@@ -106,7 +109,7 @@ class PlayTest {
         selectedDP = Play.getDrinkPackages(drinkPackages, "gh");
         assertNull(selectedDP);
     }
-    
+
 
     @Test
     void testCalculateTotalPrice() {
@@ -117,8 +120,21 @@ class PlayTest {
         PrintStream ps = new PrintStream(baos);
         System.setOut(ps);
         String actualPrintedOutput = baos.toString();
-         Play.calculateTotalPrice(packageOne,drinkPackageOne,items,scannerForTest);
-        assertNotEquals(actualPrintedOutput,input);
+        Play.calculateTotalPrice(packageOne, drinkPackageOne, items, scannerForTest);
+        assertNotEquals(actualPrintedOutput, input);
+    }
+
+    @Test
+    void testGetContactDetail() {
+        String input = "100";
+        ByteArrayInputStream bais = new ByteArrayInputStream(input.getBytes());
+        Scanner scannerForTest = new Scanner(bais);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(baos);
+        System.setOut(ps);
+        String actualPrintedOutput = baos.toString();
+        Play.getContactDetail(scannerForTest);
+        assertNotEquals(actualPrintedOutput, input);
     }
 
 }
