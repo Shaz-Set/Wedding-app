@@ -3,6 +3,9 @@ package com.yalda.app;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -103,41 +106,19 @@ class PlayTest {
         selectedDP = Play.getDrinkPackages(drinkPackages, "gh");
         assertNull(selectedDP);
     }
-
-    @Test
-    public void readFromScannerReturnsEntry() {
-        String input = "test data";
-        ByteArrayInputStream bais = new ByteArrayInputStream(input.getBytes());
-        Scanner scannerForTest = new Scanner(bais);
-        // do the test
-        String actualResult = App.readFromScanner(scannerForTest);
-        // check the return value (string) is what I expect
-        assertEquals(input, actualResult);
-        // now test that the console output contains my test string
-        ByteArrayInputStream bais1 = new ByteArrayInputStream(input.getBytes());
-        Scanner scannerForTest1 = new Scanner(bais1);
-        // redirect console output to my own thingie
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        PrintStream ps = new PrintStream(baos);
-        System.setOut(ps);
-        // do the test
-        App.readFromScanner(scannerForTest1);
-        String actualPrintedOutput = baos.toString();
-        // check the printed string matches the input
-        assertTrue(actualPrintedOutput.contains(input));
-    }
-
-    @Test
-    void testChooseAddOn(){
-        Scanner in = new Scanner(System.in);
-        List<AddOn> selectedAddOn = Play.chooseAddOns(in);
-    }
+    
 
     @Test
     void testCalculateTotalPrice() {
-        Scanner in = new Scanner(System.in);
-        //double totalPrice = calculateTotalPrice(WeddingPackages wp, DrinkPackages dp, , Scanner in);
+        String input = "100";
+        ByteArrayInputStream bais = new ByteArrayInputStream(input.getBytes());
+        Scanner scannerForTest = new Scanner(bais);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(baos);
+        System.setOut(ps);
+        String actualPrintedOutput = baos.toString();
+         Play.calculateTotalPrice(packageOne,drinkPackageOne,items,scannerForTest);
+        assertNotEquals(actualPrintedOutput,input);
     }
-
 
 }
